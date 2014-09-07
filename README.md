@@ -1,8 +1,8 @@
 # hubDB
-*acess mongoDB from lua code
-*easy to modify to meet your needs
-*connects automaticaly
-*disconnects automaticaly after recieveing expected number of responces
+* acess mongoDB from lua code
+* easy to modify to meet your needs
+* connects automaticaly
+* disconnects automaticaly after recieveing expected number of responces
 
 ## how to use
 ### lua
@@ -12,7 +12,7 @@ first you need to update its send and recieve modules so they work with your cod
 
 in a file called recieveDB.lua
 
-'''lua
+```lua
 recieveDB = {}
 function recieveDB:setLinks()
   links = recieveDB.links
@@ -28,11 +28,11 @@ end
 
 table.insert(recieveDB,{action = 'actionThatThisFunctionIsDesignedToProcess',content = functionName})
 
-'''
+```
 
 in a file called sendDB.lua
 
-'''lua
+```lua
 sendDB  = {}
 function sendDB:setLinks()
   links = sendDB.links
@@ -50,7 +50,7 @@ function sendActionName ()
 end
 
 sendDB.sendActionName = sendActionName
-'''
+```
 
 
 once that is done in your main.lua you need something like this
@@ -67,7 +67,7 @@ links.database = database
 database.links = links
 database:setLinks()-- now hubDB and more inportantly its send and recieve modules have a refrence to the links table so you can make changes to variables in main from ether
 
-'''
+```
 
 now assuming that you have a function for each action that database side of this will send
 in recieveDB table that part will be handeled automaticaly as long as you are subscribed
@@ -77,16 +77,16 @@ hubDB checks to see if it can unsubscribe every time it gets a responce matching
 
 to send to database your code should look something like this
 
-'''lua
+```lua
 database:send('sendActionName')
-'''
+```
 
 ### nodejs
 
 from command line on your server enter each of the following lines
 assuming you have nodejs and forever installed 
 
-'''
+```
 git clone git://github.com/namelis/hubDB.git
 
 cd hubDB/server
@@ -96,7 +96,7 @@ npm install
 forever --spinSleepTime 10000 start noobHub.Server.js
 forever --spinSleepTime 10000 start hubDB.sample.js 
 
-'''
+```
 
 
 
