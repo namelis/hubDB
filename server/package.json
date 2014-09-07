@@ -1,0 +1,15 @@
+ 
+{
+    "name": "hubDB",
+    "version": "0.0.1",
+    "description": "Node.js module to connect to mongoDB database using noobhub ",
+    "keywords": ["mongoDB", "lua"],
+    "repository" : {
+        "type": "git",
+        "url": ""
+    },
+    "dependencies": {
+    "random-string": "",
+    "mongoose": ""
+    }
+}
